@@ -1,70 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:inventory_app/view/loginpage.dart';
+import 'package:inventory_app/view/sign_up.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:inventory_app/view/splash.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(const Inventory());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Inventory extends StatelessWidget {
+  const Inventory({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => const Splash(),
+        LoginPage.route: (context) => const LoginPage(),
+      },
+      // home: Splash(),
+      //mengindikasikan home page nya adalah splash screen,,
+      // home: Splash()
     );
   }
 }
