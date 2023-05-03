@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:inventory_app/view/homepage.dart';
 import 'package:inventory_app/view/sign_up.dart';
-
-import 'homepage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -35,12 +34,12 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: <Widget>[
               const SizedBox(
-                height: 100,
+                height: 150,
               ),
               const Text(
                 "LOGIN",
                 style: TextStyle(
-                    fontSize: 35,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Lato'),
               ),
@@ -49,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontFamily: 'Lato',
-                    fontSize: 15),
+                    fontSize: 20),
               ),
 
               const SizedBox(
@@ -147,7 +146,9 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Enter your Password",
                         suffixIcon: IconButton(
                           icon: Icon(password
+                              // if password maka icon mata bisa visible
                               ? Icons.visibility
+                              // else maka icon mata off (not visible)
                               : Icons.visibility_off),
                           onPressed: () {
                             setState(() {
@@ -168,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: const [
@@ -238,7 +239,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               // alignment: Alignment.bottomCenter,
-              const Spacer(flex: 2),
+              const Spacer(flex: 1),
               ButtonLogin(
                 policy: policy,
                 backgroundColor: Colors.orange,
@@ -276,11 +277,11 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       },
                       child: const Text(
-                        "  Sign Up !",
+                        "  Create a new account !",
                         style: TextStyle(
                           fontFamily: 'Lato',
                           fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                          fontSize: 13.9,
                           color: Color.fromARGB(255, 255, 231, 11),
                         ),
                       ),
@@ -288,7 +289,6 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-
               const Spacer(flex: 1),
             ],
           ),
@@ -326,8 +326,7 @@ class ButtonLogin extends StatelessWidget {
         ),
         onPressed: policy
             ? () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const HomePage()));
+                Navigator.of(context).pushNamed(HomePage.route);
               }
             : null,
         child: child,

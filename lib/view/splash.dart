@@ -10,9 +10,10 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(
-      const Duration(seconds: 4),
+      const Duration(seconds: 1),
       () {
-        Navigator.of(context).pushNamed(LoginPage.route);
+        // USE PUSHREPLACEMENT THEN NO TURN BACK TO SPLASHSCREEN
+        Navigator.of(context).pushReplacementNamed(LoginPage.route);
         // diganti dengan nama alias setelah di buat rutenya di main.dart
         // .push(MaterialPageRoute(builder: (context) => const LoginPage()));
       },

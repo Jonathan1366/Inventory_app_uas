@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:inventory_app/view/navbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+  static String route = "homepage";
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -11,6 +13,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Navbar(),
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        elevation: 0.0,
+        title: const Text(
+          "Dashboard",
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -18,21 +29,9 @@ class _HomePageState extends State<HomePage> {
             end: Alignment.bottomRight,
             colors: [
               Color.fromARGB(255, 226, 215, 246),
-              Color.fromARGB(255, 117, 132, 216)
+              Color.fromARGB(255, 74, 71, 106)
             ],
           ),
-        ),
-        child: Column(
-          children: const <Widget>[
-            Align(alignment: Alignment.topLeft),
-            Text(
-              "Phone Stock Inventory Management",
-              style: TextStyle(
-                fontFamily: 'Lato',
-                fontSize: 2,
-              ),
-            )
-          ],
         ),
       ),
     );
